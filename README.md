@@ -1,20 +1,41 @@
-# Quiz-App
-Quiz App for handheld devices made in React-Native
+# QuizApp
 
-This documentation assumes that you have nodejs and react-native downloaded.
+This repository contains the Quiz app for android and iOS devices, developed in react-native. The application uses the QuizApp-WebService.
 
-Use the command: 
-'$ npm init'
-to inititialise the project.
+## Getting Started
 
-Use npm install to install required node-modules. This should create a node_modules directory and a package-lock.json file in your project root directory.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-Navigate to the /android directory and use the command:
-'$gradlew clean'
-to build the project.
+### Prerequisites
 
-Navigate back to the project root directory and use the command:
-'$ react-native run-android'
-to build and run the project on a connected android device or an emulator.
+nodejs
+react-native
+QuizApp-WebService
 
-Note: You must have android SDK installed and 'adb' added to your PATH variable.
+### Installing
+
+Use the following command to initialise the project:
+`npm init`
+
+Run `npm install` to install the required node modules. This should create a node_modules directory and a package-lock.json in your project root directory.
+
+Navigate to the /android directory and run `gradlew clean` to build the project.
+
+## Deployment
+
+### Android
+In the project root directory, run `react-native run-android` to build and run the project on an emulator or a connected device.
+
+Note: To build the project on an android device, you must have android SDK installed and 'adb' added to your PATH system variable.
+
+### iOS
+In the project root directory, run `react-native run-ios` to build and run the project on an emulator or a connected device.
+
+Note: To build the project on an iOS device, you require the machine running the macOS, and XCode installed.
+
+## Contributing
+
+Issues are welcome. Please add a screenshot of bug and code snippet. Quickest way to solve issue is to reproduce it on one of the examples.
+
+Pull requests are welcome. If you want to make major changes, it is better to first create an issue and discuss it first.
+
