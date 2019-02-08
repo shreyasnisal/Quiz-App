@@ -7,6 +7,8 @@ import {RadioButton, RadioGroup} from 'react-native-flexi-radio-button';
 import * as QuestionAction from '../actions/QuestionAction';
 import Toast from 'react-native-easy-toast';
 import Spinner from 'react-native-loading-spinner-overlay';
+import Voice from 'react-native-voice';
+import Tts from 'react-native-tts';
 
 class Questions extends Component {
 
@@ -59,6 +61,7 @@ class Questions extends Component {
     });
     NetInfo.isConnected.addEventListener('connectionChange', this.handleFirstConnectivityChange);
     BackHandler.addEventListener ('hardwareBackPress', this.handleBackPress);
+    Voice.onSpeechResults = this.onSpeechResultsHandler.bind(this);
   }
 
   componentWillUnmount () {
@@ -77,6 +80,7 @@ class Questions extends Component {
           option4: next.questionData.option4,
           answer: next.questionData.answer
         }, () => {
+            this.readQuestion ();
             setTimeout(() => {
                 this.setState({ loading: false });
             }, 500)
@@ -155,6 +159,82 @@ class Questions extends Component {
         </View>
       );
     }
+  }
+
+  //Voice commands
+
+  readQuestion () {
+    const {question} = this.state;
+    Tts.speak ('The capital of ' + question + ' is');
+  }
+
+  onSpeechResultsHandler (event) {
+    console.log (event.value);
+    var recogs = event.value;
+    var recog = event.value [0].toUpperCase ();
+    console.log (event.value);
+    if (this.state.radioButtonsActive) {
+      if (this.isInArray (recogs, this.state.answer.toUpperCase ())) {
+        this.correctAnswerSpeak ();
+      }
+      else if (recog === 'OPTIONS' || recog === 'OPTIONS PLEASE') {
+        this.readOptions ();
+      }
+      // else if (recog === this.state.option1.toUpperCase () || recog === this.state.option2.toUpperCase () || recog === this.state.option3.toUpperCase () || recog === this.state.option4.toUpperCase ()) {
+      //   this.incorrectAnswerSpeak ();
+      // }
+      else if (this.isInArray (recogs, this.state.option1.toUpperCase ()) || this.isInArray (recogs, this.state.option2.toUpperCase ()) || this.isInArray (recogs, this.state.option3.toUpperCase ()) || this.isInArray (recogs, this.state.option4.toUpperCase ())) {
+        this.incorrectAnswerSpeak ();
+      }
+      else if (recog === 'SKIP' || recog === 'SKIP') {
+        this.nextQuestion ();
+      }
+      else {
+        Tts.speak ('Sorry, can\'t find that in the option');
+      }
+    }
+    else {
+      if (recog === 'NEXT' || recog === 'NEXT QUESTION' || recog === 'NEXT QUESTION PLEASE') {
+        this.nextQuestion ();
+      }
+    }
+  }
+
+  isInArray (array, element) {
+    for (var i = 0; i < array.length; i++) {
+      if (array[i].toUpperCase () === element) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  correctAnswerSpeak = () => {
+    const {score} = this.state;
+    this.setState ({
+      questionContainerBackgroundColor: 'rgba(46, 204, 113, 1)',
+      score: score + 1,
+      radioButtonsActive: false,
+    })
+    var utterance = 'Correct!';
+    Tts.speak (utterance);
+    Voice.destroy ();
+    this.nextQuestion ();
+  }
+
+  incorrectAnswerSpeak = () => {
+    this.setState ({
+      questionContainerBackgroundColor: 'rgba(231, 76, 60, 1)',
+      answerVisible: true,
+      radioButtonsActive: false,
+    })
+    var utterance = 'Sorry, wrong answer. The correct answer is ' + this.state.answer;
+    Tts.speak (utterance);
+  }
+
+  readOptions = () => {
+    var utterance = this.state.option1 + ', ' + this.state.option2 + ', ' + this.state.option3 + ',or ' + this.state.option4;
+    Tts.speak (utterance);
   }
 
   render() {

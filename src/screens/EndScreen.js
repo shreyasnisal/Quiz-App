@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, TouchableOpacity, NetInfo, BackHandler, AsyncStorage} from 'react-native';
 import  {Content, Container, Header, Row} from 'native-base';
+import Voice from 'react-native-voice';
+import Tts from 'react-native-tts';
 
 export default class EndScreen extends Component {
   constructor(props) {
@@ -9,6 +11,10 @@ export default class EndScreen extends Component {
       loading: true,
       score: 0,
     }
+  }
+
+  componentWillMount () {
+    this.announceResults ();
   }
 
   componentDidMount () {
@@ -45,6 +51,14 @@ export default class EndScreen extends Component {
     else {
       return (<Text style={styles.rankText}>Fail</Text>);
     }
+  }
+
+  //Voice commands
+  announceResults () {
+    var speakText = 'Quiz finished. Your score is ' + this.state.score + ' out of 10.'
+    Tts.getInitStatus().then(() => {
+      Tts.speak(speakText);
+    });
   }
 
   render () {
