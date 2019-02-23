@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, TouchableOpacity, NetInfo, BackHandler, AsyncStorage} from 'react-native';
+import {Platform, StyleSheet, Text, View, TouchableOpacity, NetInfo, BackHandler, AsyncStorage, AppState} from 'react-native';
 import  {Content, Container, Header, Row} from 'native-base';
 import Voice from 'react-native-voice';
 import Tts from 'react-native-tts';
@@ -14,7 +14,7 @@ export default class EndScreen extends Component {
   }
 
   componentWillMount () {
-    this.announceResults ();
+
   }
 
   componentDidMount () {
@@ -22,11 +22,18 @@ export default class EndScreen extends Component {
     this.setState({
       score: score,
       loading: false,
+    }, () => {
+      this.announceResults ();
     })
+    //AppState.addEventListener ('change', this._handleAppStateChange);
+    Voice.onSpeechResults = this.onSpeechResultsHandler.bind(this);
     BackHandler.addEventListener ('hardwareBackPress', this.handleBackPress);
   }
 
   componentWillUnmount () {
+    Tts.stop ();
+    Voice.destroy ();
+    //AppState.removeEventListener ('change', this._handleAppStateChange);
     BackHandler.removeEventListener ('hardwareBackPress', this.handleBackPress);
   }
 
@@ -34,6 +41,13 @@ export default class EndScreen extends Component {
     this.props.navigation.navigate ('Home');
     return true;
   }
+
+  // _handleAppStateChange = (nextAppState) => {
+  //     if (nextAppState === 'inactive') {
+  //       Tts.stop ();
+  //       Voice.destroy ();
+  //     }
+  // }
 
   showRank = () => {
     if (this.state.score === 10) {
@@ -59,6 +73,31 @@ export default class EndScreen extends Component {
     Tts.getInitStatus().then(() => {
       Tts.speak(speakText);
     });
+  }
+
+  onSpeechResultsHandler (event) {
+    var understood = false;
+    var sentence = event.value [0];
+    var words = sentence.split (' ');
+    for (var i = 0; i < words.length; i++) {
+      if (words[i].toUpperCase () === 'RESTART') {
+        understood = true;
+        this.props.navigation.navigate ('Questions');
+      }
+      else if (words[i].toUpperCase () === 'MENU') {
+        understood = true;
+        this.props.navigation.navigate ('Home');
+      }
+      else if (words[i].toUpperCase () === 'EXIT' || words[i].toUpperCase () === 'QUIT' || words[i].toUpperCase () === 'CLOSE') {
+        understood = true;
+        BackHandler.exitApp ();
+      }
+    }
+    //No matches
+    if (!understood) {
+      utterance = 'Sorry, I didn\'t get that.';
+      Tts.speak (utterance);
+    }
   }
 
   render () {

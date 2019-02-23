@@ -12,11 +12,13 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import {Provider} from 'react-redux';
 import configureStore from './store/configure-store';
 import Home from './src/screens/Home';
+import Instructions from './src/screens/Instructions';
 import Questions from './src/screens/Questions';
 import EndScreen from './src/screens/EndScreen';
 
 const AppNavigator = createStackNavigator({
   Home:Home,
+  Instructions:Instructions,
   Questions:Questions,
   EndScreen:EndScreen
 },

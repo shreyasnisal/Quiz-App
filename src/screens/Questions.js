@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, TouchableOpacity, NetInfo, BackHandler, AsyncStorage} from 'react-native';
+import {Platform, StyleSheet, Text, View, TouchableOpacity, NetInfo, BackHandler, AsyncStorage, AppState} from 'react-native';
 import  { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import  {Content, Container, Header, Row} from 'native-base';
@@ -61,10 +61,14 @@ class Questions extends Component {
     });
     NetInfo.isConnected.addEventListener('connectionChange', this.handleFirstConnectivityChange);
     BackHandler.addEventListener ('hardwareBackPress', this.handleBackPress);
+    //AppState.addEventListener ('change', this._handleAppStateChange);
     Voice.onSpeechResults = this.onSpeechResultsHandler.bind(this);
   }
 
   componentWillUnmount () {
+    Tts.stop ();
+    Voice.destroy ();
+    //AppState.removeEventListener ('change', this._handleAppStateChange);
     BackHandler.removeEventListener ('hardwareBackPress', this.handleBackPress);
   }
 
@@ -95,6 +99,13 @@ class Questions extends Component {
       this.props.QuestionAction.getQuestion ();
     })
   }
+
+  // _handleAppStateChange = (nextAppState) => {
+  //     if (nextAppState === 'inactive') {
+  //       Tts.stop ();
+  //       Voice.destroy ();
+  //     }
+  // }
 
   handleBackPress = () => {
       this.setState({ loading: false })
