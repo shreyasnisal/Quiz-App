@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, TouchableOpacity, AppState, BackHandler} from 'react-native';
 import Voice from 'react-native-voice';
 import Tts from 'react-native-tts';
+import {withNavigationFocus, NavigationEvents} from 'react-navigation';
 
-export default class Home extends Component {
+class Home extends Component {
 
   componentWillMount () {
-    this.welcomeMessage ();
+    // this.welcomeMessage ();
   }
 
   componentDidMount () {
@@ -17,11 +18,22 @@ export default class Home extends Component {
     // Voice.onSpeechEnd = this.onSpeechEndHandler.bind(this);
     Voice.onSpeechResults = this.onSpeechResultsHandler.bind(this);
     //AppState.addEventListener ('change', this._handleAppStateChange);
+    this.focusListener = this.props.navigation.addListener("didFocus", () => {
+      // The screen is focused
+      this.welcomeMessage ();
+    });
+    this.blurListener = this.props.navigation.addListener("didBlur", () => {
+      // The screen is unfocused
+      Tts.stop();
+      Voice.destroy();
+    });
   }
 
   componentWillUnmount () {
     Tts.stop ();
     Voice.destroy ();
+    this.focusListener.remove();
+    this.blurListener.remove();
     //AppState.removeEventListener ('change', this._handleAppStateChange);
   }
 
@@ -109,6 +121,8 @@ export default class Home extends Component {
     );
   }
 }
+
+export default withNavigationFocus(Home);
 
 const styles = StyleSheet.create({
   container: {
