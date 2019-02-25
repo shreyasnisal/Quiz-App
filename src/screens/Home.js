@@ -22,7 +22,7 @@ class Home extends Component {
       // The screen is focused
       this.welcomeMessage ();
     });
-    this.blurListener = this.props.navigation.addListener("didBlur", () => {
+    this.blurListener = this.props.navigation.addListener("willBlur", () => {
       // The screen is unfocused
       Tts.stop();
       Voice.destroy();
