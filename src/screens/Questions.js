@@ -9,6 +9,7 @@ import Toast from 'react-native-easy-toast';
 import Spinner from 'react-native-loading-spinner-overlay';
 import Voice from 'react-native-voice';
 import Tts from 'react-native-tts';
+import PreLoader from '../components/PreLoader';
 
 class Questions extends Component {
 
@@ -108,9 +109,8 @@ class Questions extends Component {
   // }
 
   handleBackPress = () => {
-      this.setState({ loading: false })
-      //modal code goes here
-      this.props.navigation.navigate ('Home');
+      if (this.state.loading) this.setState({ loading: false })
+      else this.props.navigation.navigate ('Home');
       return true;
   }
 
@@ -296,7 +296,7 @@ class Questions extends Component {
             </TouchableOpacity>
           </View>
         </Content>
-        <Spinner visible={this.state.loading} />
+        <PreLoader preLoaderVisible={this.state.loading} />
         <Toast ref="toast" position="top" />
       </Container>
     );
