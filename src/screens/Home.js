@@ -20,7 +20,7 @@ class Home extends Component {
     //AppState.addEventListener ('change', this._handleAppStateChange);
     this.focusListener = this.props.navigation.addListener("didFocus", () => {
       // The screen is focused
-      this.welcomeMessage ();
+      setTimeout (this.welcomeMessage, 500);
     });
     this.blurListener = this.props.navigation.addListener("willBlur", () => {
       // The screen is unfocused

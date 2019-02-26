@@ -180,33 +180,70 @@ class Questions extends Component {
   }
 
   onSpeechResultsHandler (event) {
-    console.log (event.value);
+    const option1 = this.state.option1.split (' ')[0];
+    const option2 = this.state.option2.split (' ')[0];
+    const option3 = this.state.option3.split (' ')[0];
+    const option4 = this.state.option4.split (' ')[0];
+    const answer = this.state.answer.split (' ')[0];
+    // console.log (option1);
+    // console.log (option2);
+    // console.log (option3);
+    // console.log (option4);
     var recogs = event.value;
-    var recog = event.value [0].toUpperCase ();
-    console.log (event.value);
-    if (this.state.radioButtonsActive) {
-      if (this.isInArray (recogs, this.state.answer.toUpperCase ())) {
-        this.correctAnswerSpeak ();
-      }
-      else if (recog === 'OPTIONS' || recog === 'OPTIONS PLEASE') {
-        this.readOptions ();
-      }
-      // else if (recog === this.state.option1.toUpperCase () || recog === this.state.option2.toUpperCase () || recog === this.state.option3.toUpperCase () || recog === this.state.option4.toUpperCase ()) {
-      //   this.incorrectAnswerSpeak ();
-      // }
-      else if (this.isInArray (recogs, this.state.option1.toUpperCase ()) || this.isInArray (recogs, this.state.option2.toUpperCase ()) || this.isInArray (recogs, this.state.option3.toUpperCase ()) || this.isInArray (recogs, this.state.option4.toUpperCase ())) {
-        this.incorrectAnswerSpeak ();
-      }
-      else if (recog === 'SKIP' || recog === 'SKIP') {
-        this.nextQuestion ();
+    // console.log (recogs);
+    for (var j = 0; j < recogs.length; j++) {
+      var recog = event.value [j].toUpperCase ();
+      // console.log (recog);
+      var words = recog.split (' ');
+      // console.log (words);
+      if (this.state.radioButtonsActive) {
+        if (this.isInArray (words, answer.toUpperCase ())) {
+          this.correctAnswerSpeak ();
+          return;
+        }
+        else if (this.isInArray (words, 'OPTIONS')) {
+          this.readOptions ();
+          return;
+        }
+        // else if (recog === this.state.option1.toUpperCase () || recog === this.state.option2.toUpperCase () || recog === this.state.option3.toUpperCase () || recog === this.state.option4.toUpperCase ()) {
+        //   this.incorrectAnswerSpeak ();
+        // }
+        else if (this.isInArray (words, option1.toUpperCase ()) || this.isInArray (words, option2.toUpperCase ()) || this.isInArray (words, option3.toUpperCase ()) || this.isInArray (words, option4.toUpperCase ())) {
+          this.incorrectAnswerSpeak ();
+          return;
+        }
+        else if (this.isInArray (words, 'SKIP')) {
+          this.nextQuestion ();
+          return;
+        }
+        else if (this.isInArray (words, 'REPEAT')) {
+          if (this.isInArray (words, 'QUESTION')) {
+            this.readQuestion ();
+            return;
+          }
+          else if (this.isInArray (words, 'OPTIONS')) {
+            this.readOptions ();
+            return;
+          }
+          else if (this.isInArray (words, 'COUNTRY')) {
+            Tts.speak (this.state.question);
+            return;
+          }
+          else {
+            Tts.speak ('Sorry, I just heard repeat, and I\'m not sure what you want me to repeat');
+            return;
+          }
+        }
+        else {
+          Tts.speak ('Sorry, can\'t find that in the options');
+          return;
+        }
       }
       else {
-        Tts.speak ('Sorry, can\'t find that in the option');
-      }
-    }
-    else {
-      if (recog === 'NEXT' || recog === 'NEXT QUESTION' || recog === 'NEXT QUESTION PLEASE') {
-        this.nextQuestion ();
+        if (this.isInArray (words, 'NEXT') || this.isInArray (words, 'OK')) {
+          this.nextQuestion ();
+          return;
+        }
       }
     }
   }
