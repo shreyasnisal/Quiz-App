@@ -77,19 +77,46 @@ export default class EndScreen extends Component {
 
   onSpeechResultsHandler (event) {
     var understood = false;
+    var negatives = ['NO', 'ISN\'T', 'NOT', 'DON\'T'];
+    var startWords = ['Ok', 'Sure', 'Cool', 'Alright', 'Fine'];
     var sentence = event.value [0];
     var words = sentence.split (' ');
     for (var i = 0; i < words.length; i++) {
       if (words[i].toUpperCase () === 'RESTART') {
         understood = true;
+        for  (var i = 0; i < words.length; i++) {
+          if (this.isInArray (words[i].toUpperCase (), negatives)) {
+              var startWord = startWords [Math.floor (Math.random () * startWords.length)];
+              var utterance = startWord + ', I won\'t restart the quiz. So what would you like me to do?'
+              Tts.speak (utterance);
+              return;
+          }
+        }
         this.props.navigation.navigate ('Questions');
       }
       else if (words[i].toUpperCase () === 'MENU') {
         understood = true;
+        for  (var i = 0; i < words.length; i++) {
+          if (this.isInArray (words[i].toUpperCase (), negatives)) {
+              var startWord = startWords [Math.floor (Math.random () * startWords.length)];
+              var utterance = startWord + ', I won\'t return to the menu. So what would you like me to do?'
+              Tts.speak (utterance);
+              return;
+          }
+        }
         this.props.navigation.navigate ('Home');
       }
       else if (words[i].toUpperCase () === 'EXIT' || words[i].toUpperCase () === 'QUIT' || words[i].toUpperCase () === 'CLOSE') {
         understood = true;
+        usedWord = words[i];
+        for  (var i = 0; i < words.length; i++) {
+          if (this.isInArray (words[i].toUpperCase (), negatives)) {
+              var startWord = startWords [Math.floor (Math.random () * startWords.length)];
+              var utterance = startWord + ', I won\'t ' + usedWord + ' the app. So what would you like me to do?'
+              Tts.speak (utterance);
+              return;
+          }
+        }
         BackHandler.exitApp ();
       }
     }
@@ -99,6 +126,15 @@ export default class EndScreen extends Component {
       Tts.speak (utterance);
     }
   }
+
+isInArray (element, array) {
+  for (var i = 0; i < array.length; i++) {
+    if (element === array[i]) {
+      return true;
+    }
+  }
+  return false;
+}
 
   render () {
     const  {loading, score} = this.state;

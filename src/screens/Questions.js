@@ -180,11 +180,14 @@ class Questions extends Component {
   }
 
   onSpeechResultsHandler (event) {
+    var negatives = ['NO', 'ISN\'T', 'NOT', 'DON\'T'];
+    var startWords = ['Ok', 'Sure', 'Cool', 'Alright', 'Fine'];
     const option1 = this.state.option1.split (' ')[0];
     const option2 = this.state.option2.split (' ')[0];
     const option3 = this.state.option3.split (' ')[0];
     const option4 = this.state.option4.split (' ')[0];
     const answer = this.state.answer.split (' ')[0];
+    console.log (answer);
     // console.log (option1);
     // console.log (option2);
     // console.log (option3);
@@ -195,13 +198,21 @@ class Questions extends Component {
       var recog = event.value [j].toUpperCase ();
       // console.log (recog);
       var words = recog.split (' ');
-      // console.log (words);
+      console.log (words);
       if (this.state.radioButtonsActive) {
         if (this.isInArray (words, answer.toUpperCase ())) {
           this.correctAnswerSpeak ();
           return;
         }
         else if (this.isInArray (words, 'OPTIONS')) {
+          for (var i = 0; i < negatives.length; i++) {
+            if (this.isInArray (words, negatives[i])) {
+              var startWord = startWords [Math.floor (Math.random () * startWords.length)];
+              var utterance = startWord + ', I won\'t read out the options. So what do you think is the capital of ' + this.state.question + '?';
+              Tts.speak (utterance);
+              return;
+            }
+          }
           this.readOptions ();
           return;
         }
@@ -209,27 +220,75 @@ class Questions extends Component {
         //   this.incorrectAnswerSpeak ();
         // }
         else if (this.isInArray (words, option1.toUpperCase ()) || this.isInArray (words, option2.toUpperCase ()) || this.isInArray (words, option3.toUpperCase ()) || this.isInArray (words, option4.toUpperCase ())) {
+          for (var i = 0; i < negatives.length; i++) {
+            if (this.isInArray (words, negatives[i].toUpperCase ())) {
+              var startWord = startWords [Math.floor (Math.random () * startWords.length)];
+              var utterance = 'Maybe it isn\'t, I\'m not at liberty to say. What do you think is the correct answer then?';
+              Tts.speak (utterance);
+              return;
+            }
+          }
           this.incorrectAnswerSpeak ();
           return;
         }
         else if (this.isInArray (words, 'SKIP')) {
+          for (var i = 0; i < negatives.length; i++) {
+            if (this.isInArray (words, negatives[i])) {
+              var startWord = startWords [Math.floor (Math.random () * startWords.length)];
+              var utterance = startWord + ', I won\'t skip this question. So what do you think is the capital of ' + this.state.question + '?';
+              Tts.speak (utterance);
+              return;
+            }
+          }
           this.nextQuestion ();
           return;
         }
         else if (this.isInArray (words, 'REPEAT')) {
           if (this.isInArray (words, 'QUESTION')) {
+            for (var i = 0; i < negatives.length; i++) {
+              if (this.isInArray (words, negatives[i])) {
+                var startWord = startWords [Math.floor (Math.random () * startWords.length)];
+                var utterance = startWord + ', I won\'t repeat the question. So what do you think is the answer?';
+                Tts.speak (utterance);
+                return;
+              }
+            }
             this.readQuestion ();
             return;
           }
           else if (this.isInArray (words, 'OPTIONS')) {
+            for (var i = 0; i < negatives.length; i++) {
+              if (this.isInArray (words, negatives[i])) {
+                var startWord = startWords [Math.floor (Math.random () * startWords.length)];
+                var utterance = startWord + ', I won\'t repeat the options. So what do you think is the answer?';
+                Tts.speak (utterance);
+                return;
+              }
+            }
             this.readOptions ();
             return;
           }
           else if (this.isInArray (words, 'COUNTRY')) {
+            for (var i = 0; i < negatives.length; i++) {
+              if (this.isInArray (words, negatives)) {
+                var startWord = startWords [Math.floor (Math.random () * startWords.length)];
+                var utterance = startWord + ', I won\'t repeat the country. So what do you think is the answer?';
+                Tts.speak (utterance);
+                return;
+              }
+            }
             Tts.speak (this.state.question);
             return;
           }
           else {
+            for (var i = 0; i < negatives.length; i++) {
+              if (this.isInArray (words, negatives[i])) {
+                var startWord = startWords [Math.floor (Math.random () * startWords.length)];
+                var utterance = startWord + ', I don\'t know what you want me to repeat, but I won\'t repeat it anyways. So what do you think is the answer?';
+                Tts.speak (utterance);
+                return;
+              }
+            }
             Tts.speak ('Sorry, I just heard repeat, and I\'m not sure what you want me to repeat');
             return;
           }
@@ -243,6 +302,9 @@ class Questions extends Component {
         if (this.isInArray (words, 'NEXT') || this.isInArray (words, 'OK')) {
           this.nextQuestion ();
           return;
+        }
+        else {
+          Tts.speak ('Sorry, I didn\'t get that');
         }
       }
     }
