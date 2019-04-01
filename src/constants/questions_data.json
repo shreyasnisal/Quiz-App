@@ -1,0 +1,631 @@
+[ {
+  "answer" : "Berlin",
+  "option1" : "Bern",
+  "option2" : "Born",
+  "option3" : "Berlin",
+  "option4" : "Warsaw",
+  "question" : "Germany"
+}, {
+  "answer" : "Islamabad",
+  "option1" : "Karachi",
+  "option2" : "Islamabad",
+  "option3" : "Kabul",
+  "option4" : "Lahore",
+  "question" : "Pakistan"
+}, {
+  "answer" : "Ankara",
+  "option1" : "Istanbul",
+  "option2" : "Constantinople",
+  "option3" : "Ankara",
+  "option4" : "Antalya",
+  "question" : "Turkey"
+}, {
+  "answer" : "Tehran",
+  "option1" : "Tehran",
+  "option2" : "Baghdad",
+  "option3" : "Damascus",
+  "option4" : "Amman",
+  "question" : "Iran"
+}, {
+  "answer" : "Baghdad",
+  "option1" : "Tehran",
+  "option2" : "Baghdad",
+  "option3" : "Damascus",
+  "option4" : "Amman",
+  "question" : "Iraq"
+}, {
+  "answer" : "Warsaw",
+  "option1" : "Berlin",
+  "option2" : "Bern",
+  "option3" : "Warsaw",
+  "option4" : "Stockholm",
+  "question" : "Poland"
+}, {
+  "answer" : "Delhi",
+  "option1" : "Delhi",
+  "option2" : "Mumbai",
+  "option3" : "Chennai",
+  "option4" : "Kolkata",
+  "question" : "India"
+}, {
+  "answer" : "London",
+  "option1" : "Dublin",
+  "option2" : "London",
+  "option3" : "Berlin",
+  "option4" : "Manchester",
+  "question" : "England"
+}, {
+  "answer" : "Brasilia",
+  "option1" : "Rio de Janeiro",
+  "option2" : "Sau Paolo",
+  "option3" : "Brasilia",
+  "option4" : "Salvador",
+  "question" : "Brasil"
+}, {
+  "answer" : "Beunos Aires",
+  "option1" : "Beunos Aires",
+  "option2" : "Mendoza",
+  "option3" : "Rosaria",
+  "option4" : "Bariloche",
+  "question" : "Argentina"
+}, {
+  "answer" : "Montevideo",
+  "option1" : "San Carlos",
+  "option2" : "Punta del",
+  "option3" : "Montevideo",
+  "option4" : "Asuncion",
+  "question" : "Uruguay"
+}, {
+  "answer" : "Asuncion",
+  "option1" : "San Carlos",
+  "option2" : "Punta del",
+  "option3" : "Montevideo",
+  "option4" : "Asuncion",
+  "question" : "Paraguay"
+}, {
+  "answer" : "Quito",
+  "option1" : "Quito",
+  "option2" : "La Paz",
+  "option3" : "Bogota",
+  "option4" : "Lima",
+  "question" : "Equador"
+}, {
+  "answer" : "Bogota",
+  "option1" : "Quito",
+  "option2" : "La Paz",
+  "option3" : "Bogota",
+  "option4" : "Lima",
+  "question" : "Columbia"
+}, {
+  "answer" : "Lima",
+  "option1" : "Quito",
+  "option2" : "La Paz",
+  "option3" : "Bogota",
+  "option4" : "Lima",
+  "question" : "Peru"
+}, {
+  "answer" : "Caracass",
+  "option1" : "Georgetown",
+  "option2" : "La Paz",
+  "option3" : "Bogota",
+  "option4" : "Caracass",
+  "question" : "Venezuela"
+}, {
+  "answer" : "Santiago",
+  "option1" : "Beunos Aires",
+  "option2" : "Santiago",
+  "option3" : "Lima",
+  "option4" : "Asuncion",
+  "question" : "Chile"
+}, {
+  "answer" : "Kathmandu",
+  "option1" : "Kathmandu",
+  "option2" : "Thimpu",
+  "option3" : "Dhaka",
+  "option4" : "Pokhara",
+  "question" : "Nepal"
+}, {
+  "answer" : "Dhaka",
+  "option1" : "Kathmandu",
+  "option2" : "Thimpu",
+  "option3" : "Dhaka",
+  "option4" : "Chittagong",
+  "question" : "Bangladesh"
+}, {
+  "answer" : "Thimphu",
+  "option1" : "Kathmandu",
+  "option2" : "Thimphu",
+  "option3" : "Punakha",
+  "option4" : "Dhaka",
+  "question" : "Bhutan"
+}, {
+  "answer" : "Male",
+  "option1" : "Male",
+  "option2" : "Colombo",
+  "option3" : "Port Blair",
+  "option4" : "Rangoon",
+  "question" : "Maldives"
+}, {
+  "answer" : "Rangoon",
+  "option1" : "Rangoon",
+  "option2" : "Lhasa",
+  "option3" : "Dhaka",
+  "option4" : "Thimphu",
+  "question" : "Myanmar"
+}, {
+  "answer" : "Beijing",
+  "option1" : "Shanghai",
+  "option2" : "Tianjin",
+  "option3" : "Shenzhen",
+  "option4" : "Beijing",
+  "question" : "China"
+}, {
+  "answer" : "Kabul",
+  "option1" : "Tashkent",
+  "option2" : "Bishkek",
+  "option3" : "Kabul",
+  "option4" : "Astana",
+  "question" : "Afghanistan"
+}, {
+  "answer" : "Tashkent",
+  "option1" : "Tashkent",
+  "option2" : "Bishkek",
+  "option3" : "Kabul",
+  "option4" : "Astana",
+  "question" : "Uzbekistan"
+}, {
+  "answer" : "Bishkek",
+  "option1" : "Tashkent",
+  "option2" : "Bishkek",
+  "option3" : "Kabul",
+  "option4" : "Astana",
+  "question" : "Kyrgyzstan"
+}, {
+  "answer" : "Astana",
+  "option1" : "Tashkent",
+  "option2" : "Bishkek",
+  "option3" : "Kabul",
+  "option4" : "Astana",
+  "question" : "Kazakstan"
+}, {
+  "answer" : "Ulaanbaatar",
+  "option1" : "Pyongang",
+  "option2" : "Ulaanbaatar",
+  "option3" : "Beijing",
+  "option4" : "Dushanbe",
+  "question" : "Mongolia"
+}, {
+  "answer" : "Dushanbe",
+  "option1" : "Ulaanbaatar",
+  "option2" : "Dushanbe",
+  "option3" : "Ashgabat",
+  "option4" : "Tehran",
+  "question" : "Tajikistan"
+}, {
+  "answer" : "Ashgabat",
+  "option1" : "Ulaanbaatar",
+  "option2" : "Dushanbe",
+  "option3" : "Ashgabat",
+  "option4" : "Tehran",
+  "question" : "Turkmenistan"
+}, {
+  "answer" : "Pyongyang",
+  "option1" : "Pyongyang",
+  "option2" : "Seoul",
+  "option3" : "Hanoi",
+  "option4" : "Manila",
+  "question" : "North Korea"
+}, {
+  "answer" : "Seoul",
+  "option1" : "Pyongyang",
+  "option2" : "Seoul",
+  "option3" : "Hanoi",
+  "option4" : "Manila",
+  "question" : "South Korea"
+}, {
+  "answer" : "Hanoi",
+  "option1" : "Pyongyang",
+  "option2" : "Seoul",
+  "option3" : "Hanoi",
+  "option4" : "Manila",
+  "question" : "Vietnam"
+}, {
+  "answer" : "Damascus",
+  "option1" : "Tehran",
+  "option2" : "Baghdad",
+  "option3" : "Damascus",
+  "option4" : "Aman",
+  "question" : "Syria"
+}, {
+  "answer" : "Aman",
+  "option1" : "Tehran",
+  "option2" : "Baghdad",
+  "option3" : "Damascus",
+  "option4" : "Aman",
+  "question" : "Jordan"
+}, {
+  "answer" : "Abu Dhabi",
+  "option1" : "Dubai",
+  "option2" : "Sharjah",
+  "option3" : "Abu Dhabi",
+  "option4" : "Ajman",
+  "question" : "United Arab Emirates"
+}, {
+  "answer" : "Doha",
+  "option1" : "Doha",
+  "option2" : "Riyadh",
+  "option3" : "Yemen",
+  "option4" : "Oman",
+  "question" : "Qatar"
+}, {
+  "answer" : "Riyadh",
+  "option1" : "Doha",
+  "option2" : "Riyadh",
+  "option3" : "Yemen",
+  "option4" : "Oman",
+  "question" : "Saudi Arabia"
+}, {
+  "answer" : "Muscat",
+  "option1" : "Doha",
+  "option2" : "Riyadh",
+  "option3" : "Yemen",
+  "option4" : "Muscat",
+  "question" : "Oman"
+}, {
+  "answer" : "Sanaa",
+  "option1" : "Doha",
+  "option2" : "Riyadh",
+  "option3" : "Sanaa",
+  "option4" : "Muscat",
+  "question" : "Yemen"
+}, {
+  "answer" : "Jerusalem",
+  "option1" : "Jerusalem",
+  "option2" : "Tel Aviv",
+  "option3" : "Haifa",
+  "option4" : "Eliat",
+  "question" : "Israel"
+}, {
+  "answer" : "Tblisi",
+  "option1" : "Yerevan",
+  "option2" : "Baku",
+  "option3" : "Damascus",
+  "option4" : "Tblisi",
+  "question" : "Georgia"
+}, {
+  "answer" : "Baku",
+  "option1" : "Yerevan",
+  "option2" : "Baku",
+  "option3" : "Damascus",
+  "option4" : "Tblisi",
+  "question" : "Azerbaijan"
+}, {
+  "answer" : "Yerevan",
+  "option1" : "Yerevan",
+  "option2" : "Baku",
+  "option3" : "Damascus",
+  "option4" : "Tblisi",
+  "question" : "Armenia"
+}, {
+  "answer" : "Cyprus",
+  "option1" : "Yerevan",
+  "option2" : "Cyprus",
+  "option3" : "Damascus",
+  "option4" : "Beirut",
+  "question" : "Nicosia"
+}, {
+  "answer" : "Beirut",
+  "option1" : "Yerevan",
+  "option2" : "Cyprus",
+  "option3" : "Damascus",
+  "option4" : "Beirut",
+  "question" : "Lebanon"
+}, {
+  "answer" : "Manama",
+  "option1" : "Manama",
+  "option2" : "Muscat",
+  "option3" : "Doha",
+  "option4" : "Kuwait City",
+  "question" : "Bahrain"
+}, {
+  "answer" : "Manila",
+  "option1" : "Hanoi",
+  "option2" : "Manila",
+  "option3" : "Cedu",
+  "option4" : "Dawao",
+  "question" : "Philippines"
+}, {
+  "answer" : "Tokyo",
+  "option1" : "Hiroshima",
+  "option2" : "Osaka",
+  "option3" : "Tokyo",
+  "option4" : "Kyoto",
+  "question" : "Japan"
+}, {
+  "answer" : "Amsterdam",
+  "option1" : "Amsterdam",
+  "option2" : "Athens",
+  "option3" : "Lisbon",
+  "option4" : "Ljublijana",
+  "question" : "Netherlands"
+}, {
+  "answer" : "Athens",
+  "option1" : "Barcelona",
+  "option2" : "Sparta",
+  "option3" : "Athens",
+  "option4" : "Bratislava",
+  "question" : "Greece"
+}, {
+  "answer" : "Madrid",
+  "option1" : "Madrid",
+  "option2" : "Barcelona",
+  "option3" : "Helsinki",
+  "option4" : "Cologne",
+  "question" : "Spain"
+}, {
+  "answer" : "Berlin",
+  "option1" : "Berlin",
+  "option2" : "Munich",
+  "option3" : "Stuggart",
+  "option4" : "Cologne",
+  "question" : "Germany"
+}, {
+  "answer" : "Bratislava",
+  "option1" : "Zareb",
+  "option2" : "Budapest",
+  "option3" : "Bucharest",
+  "option4" : "Bratislava",
+  "question" : "Slovakia"
+}, {
+  "answer" : "Budapest",
+  "option1" : "Zareb",
+  "option2" : "Budapest",
+  "option3" : "Bucharest",
+  "option4" : "Bratislava",
+  "question" : "Hungary"
+}, {
+  "answer" : "Bucharest",
+  "option1" : "Zareb",
+  "option2" : "Budapest",
+  "option3" : "Bucharest",
+  "option4" : "Bratislava",
+  "question" : "Romania"
+}, {
+  "answer" : "Rome",
+  "option1" : "Lisbon",
+  "option2" : "Milan",
+  "option3" : "Rome",
+  "option4" : "Vilnius",
+  "question" : "Italy"
+}, {
+  "answer" : "Paris",
+  "option1" : "Lisbon",
+  "option2" : "Milan",
+  "option3" : "Rome",
+  "option4" : "Paris",
+  "question" : "France"
+}, {
+  "answer" : "Brussels",
+  "option1" : "Luxembourg",
+  "option2" : "Sofia",
+  "option3" : "Brussels",
+  "option4" : "Paris",
+  "question" : "Belgium"
+}, {
+  "answer" : "Stockholm",
+  "option1" : "Luxembourg",
+  "option2" : "Vienna",
+  "option3" : "Brussels",
+  "option4" : "Stockholm",
+  "question" : "Sweden"
+}, {
+  "answer" : "Luxembourg",
+  "option1" : "Luxembourg",
+  "option2" : "Vienna",
+  "option3" : "Brussels",
+  "option4" : "Stockholm",
+  "question" : "Luxembourg"
+}, {
+  "answer" : "Prague",
+  "option1" : "Luxembourg",
+  "option2" : "Prague",
+  "option3" : "Brussels",
+  "option4" : "Stockholm",
+  "question" : "Czech Republic"
+}, {
+  "answer" : "Lisbon",
+  "option1" : "Lisbon",
+  "option2" : "Milan",
+  "option3" : "Madrid",
+  "option4" : "Barcelona",
+  "question" : "Portugal"
+}, {
+  "answer" : "Ljublijana",
+  "option1" : "Lisbon",
+  "option2" : "Sofia",
+  "option3" : "Ljublijana",
+  "option4" : "Riga",
+  "question" : "Slovenia"
+}, {
+  "answer" : "Sofia",
+  "option1" : "Valletta",
+  "option2" : "Sofia",
+  "option3" : "Ljublijana",
+  "option4" : "Riga",
+  "question" : "Bulgaria"
+}, {
+  "answer" : "Valletta",
+  "option1" : "Valletta",
+  "option2" : "Sofia",
+  "option3" : "Ljublijana",
+  "option4" : "Riga",
+  "question" : "Malta"
+}, {
+  "answer" : "Vilnius",
+  "option1" : "Valletta",
+  "option2" : "Sofia",
+  "option3" : "Vilnius",
+  "option4" : "Riga",
+  "question" : "Lithuania"
+}, {
+  "answer" : "Riga",
+  "option1" : "Valletta",
+  "option2" : "Sofia",
+  "option3" : "Vilnius",
+  "option4" : "Riga",
+  "question" : "Latvia"
+}, {
+  "answer" : "Zagreb",
+  "option1" : "Zagreb",
+  "option2" : "Tallinn",
+  "option3" : "Sofia",
+  "option4" : "Riga",
+  "question" : "Croatia"
+}, {
+  "answer" : "Tallinn",
+  "option1" : "Zagreb",
+  "option2" : "Tallinn",
+  "option3" : "Sofia",
+  "option4" : "Riga",
+  "question" : "Estonia"
+}, {
+  "answer" : "Copenhagen",
+  "option1" : "Copenhagen",
+  "option2" : "Warsaw",
+  "option3" : "Vienna",
+  "option4" : "Brussels",
+  "question" : "Denmark"
+}, {
+  "answer" : "Vienna",
+  "option1" : "Copenhagen",
+  "option2" : "Warsaw",
+  "option3" : "Vienna",
+  "option4" : "Brussels",
+  "question" : "Austria"
+}, {
+  "answer" : "Havana",
+  "option1" : "Havana",
+  "option2" : "Santiago de Cuba",
+  "option3" : "Varadero",
+  "option4" : "Cienfuegos",
+  "question" : "Cuba"
+}, {
+  "answer" : "Ottawa",
+  "option1" : "Toronto",
+  "option2" : "Vancouver",
+  "option3" : "Montreal",
+  "option4" : "Ottawa",
+  "question" : "Canada"
+}, {
+  "answer" : "Washington DC",
+  "option1" : "New York",
+  "option2" : "Los Angeles",
+  "option3" : "Washington DC",
+  "option4" : "Las Vegas",
+  "question" : "United States of America"
+}, {
+  "answer" : "Mexico City",
+  "option1" : "Merida",
+  "option2" : "Mexico City",
+  "option3" : "Tijuana",
+  "option4" : "Guadalajara",
+  "question" : "Mexico"
+}, {
+  "answer" : "Panama City",
+  "option1" : "Panama City",
+  "option2" : "Ancon",
+  "option3" : "Tocumen",
+  "option4" : "Balboa",
+  "question" : "Panama"
+}, {
+  "answer" : "Canberra",
+  "option1" : "Melbourne",
+  "option2" : "Brisbane",
+  "option3" : "Sydney",
+  "option4" : "Canberra",
+  "question" : "Australia"
+}, {
+  "answer" : "Ngerulmud",
+  "option1" : "Ngerulmud",
+  "option2" : "Palikir",
+  "option3" : "Port Moresby",
+  "option4" : "Majuro",
+  "question" : "Palau"
+}, {
+  "answer" : "Palikir",
+  "option1" : "Ngerulmud",
+  "option2" : "Palikir",
+  "option3" : "Port Moresby",
+  "option4" : "Majuro",
+  "question" : "Micronesia"
+}, {
+  "answer" : "Majuro",
+  "option1" : "Ngerulmud",
+  "option2" : "Palikir",
+  "option3" : "Port Moresby",
+  "option4" : "Majuro",
+  "question" : "Marshall Island"
+}, {
+  "answer" : "Port Moresby",
+  "option1" : "Ngerulmud",
+  "option2" : "Palikir",
+  "option3" : "Port Moresby",
+  "option4" : "Majuro",
+  "question" : "Papua New Guinea"
+}, {
+  "answer" : "Yaren",
+  "option1" : "Yaren",
+  "option2" : "South Tarawa",
+  "option3" : "Funafuti",
+  "option4" : "Honiara",
+  "question" : "Nauru"
+}, {
+  "answer" : "South Tarawa",
+  "option1" : "Yaren",
+  "option2" : "South Tarawa",
+  "option3" : "Funafuti",
+  "option4" : "Honiara",
+  "question" : "Kiribati"
+}, {
+  "answer" : "Funafuti",
+  "option1" : "Yaren",
+  "option2" : "South Tarawa",
+  "option3" : "Funafuti",
+  "option4" : "Honiara",
+  "question" : "Tuvalu"
+}, {
+  "answer" : "Honiara",
+  "option1" : "Yaren",
+  "option2" : "South Tarawa",
+  "option3" : "Funafuti",
+  "option4" : "Honiara",
+  "question" : "Solomon Island"
+}, {
+  "answer" : "Port Vila",
+  "option1" : "Port Vila",
+  "option2" : "Suva",
+  "option3" : "Apia",
+  "option4" : "Nukualofa",
+  "question" : "Vanuatu"
+}, {
+  "answer" : "Suva",
+  "option1" : "Port Vila",
+  "option2" : "Suva",
+  "option3" : "Apia",
+  "option4" : "Nukualofa",
+  "question" : "Fiji"
+}, {
+  "answer" : "Apia",
+  "option1" : "Port Vila",
+  "option2" : "Suva",
+  "option3" : "Apia",
+  "option4" : "Nukualofa",
+  "question" : "Samoa"
+}, {
+  "answer" : "Nukualofa",
+  "option1" : "Port Vila",
+  "option2" : "Suva",
+  "option3" : "Apia",
+  "option4" : "Nukualofa",
+  "question" : "Tonga"
+} ]

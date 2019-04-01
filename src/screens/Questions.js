@@ -1,17 +1,15 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, TouchableOpacity, NetInfo, BackHandler, AsyncStorage, AppState} from 'react-native';
-import  { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import  {Content, Container, Header, Row} from 'native-base';
 import {RadioButton, RadioGroup} from 'react-native-flexi-radio-button';
-import * as QuestionAction from '../actions/QuestionAction';
+import * as questions_data from '../constants/questions_data';
 import Toast from 'react-native-easy-toast';
 import Spinner from 'react-native-loading-spinner-overlay';
 import Voice from 'react-native-voice';
 import Tts from 'react-native-tts';
 import PreLoader from '../components/PreLoader';
 
-class Questions extends Component {
+export default class Questions extends Component {
 
   constructor (props) {
     super(props);
@@ -33,93 +31,40 @@ class Questions extends Component {
     };
   }
 
-  componentWillMount () {
-    NetInfo.isConnected.fetch().then(isConnected => {
-        if (!isConnected) {
-            this.setState({
-                loading: false
-            }, () => {
-                this.refs.toast.show("Could not connect to server")
-            })
-        } else {
-            this.setState({
-                loading: true
-            }, () => {
-                this.props.QuestionAction.getQuestion ();
-            })
-          }
-      });
-  }
-
   componentDidMount () {
-    NetInfo.isConnected.fetch().then(isConnected => {
-        if (!isConnected) {
-            this.setState({
-            }, () => {
-                this.refs.toast.show("Could not connect to server")
-            })
-        }
-    });
-    NetInfo.isConnected.addEventListener('connectionChange', this.handleFirstConnectivityChange);
+    this.getQuestion ();
     BackHandler.addEventListener ('hardwareBackPress', this.handleBackPress);
-    //AppState.addEventListener ('change', this._handleAppStateChange);
     Voice.onSpeechResults = this.onSpeechResultsHandler.bind(this);
   }
 
   componentWillUnmount () {
     Tts.stop ();
     Voice.destroy ();
-    //AppState.removeEventListener ('change', this._handleAppStateChange);
     BackHandler.removeEventListener ('hardwareBackPress', this.handleBackPress);
   }
 
-  componentWillReceiveProps (next) {
-    console.log (next.questionData);
-    if (next.questionData) {
-        this.setState({
-          loading: false,
-          question: next.questionData.question,
-          option1: next.questionData.option1,
-          option2: next.questionData.option2,
-          option3: next.questionData.option3,
-          option4: next.questionData.option4,
-          answer: next.questionData.answer
-        }, () => {
-            this.readQuestion ();
-            setTimeout(() => {
-                this.setState({ loading: false });
-            }, 500)
-        });
-    }
-  }
-
   getQuestion = () => {
-    this.setState ({
-      loading: true,
+    const q_no = Math.floor (Math.random () * 90);
+    this.setState({
+      loading: false,
+      question: questions_data [q_no].question,
+      option1: questions_data [q_no].option1,
+      option2: questions_data[q_no].option2,
+      option3: questions_data[q_no].option3,
+      option4: questions_data[q_no].option4,
+      answer: questions_data[q_no].answer
     }, () => {
-      this.props.QuestionAction.getQuestion ();
-    })
+        this.readQuestion ();
+        setTimeout(() => {
+            this.setState({ loading: false });
+        }, 500)
+    });
   }
-
-  // _handleAppStateChange = (nextAppState) => {
-  //     if (nextAppState === 'inactive') {
-  //       Tts.stop ();
-  //       Voice.destroy ();
-  //     }
-  // }
 
   handleBackPress = () => {
       if (this.state.loading) this.setState({ loading: false })
       else this.props.navigation.navigate ('Home');
       return true;
-  }
-
-  handleFirstConnectivityChange = (isConnected) => {
-      if (!isConnected) {
-          this.setState({ loading: false });
-      } else {
-          this.setState({ loading: true });
-      }
   }
 
   submitButton = () => {
@@ -157,7 +102,7 @@ class Questions extends Component {
         questionNumber: questionNumber + 1,
       }, () => {
         this.showAnswer ();
-        this.props.QuestionAction.getQuestion();
+        this.getQuestion ();
       })
     }
   }
@@ -173,7 +118,6 @@ class Questions extends Component {
   }
 
   //Voice commands
-
   readQuestion () {
     const {question} = this.state;
     Tts.speak ('The capital of ' + question + ' is');
@@ -187,16 +131,9 @@ class Questions extends Component {
     const option3 = this.state.option3.split (' ')[0];
     const option4 = this.state.option4.split (' ')[0];
     const answer = this.state.answer.split (' ')[0];
-    console.log (answer);
-    // console.log (option1);
-    // console.log (option2);
-    // console.log (option3);
-    // console.log (option4);
     var recogs = event.value;
-    // console.log (recogs);
     for (var j = 0; j < recogs.length; j++) {
       var recog = event.value [j].toUpperCase ();
-      // console.log (recog);
       var words = recog.split (' ');
       console.log (words);
       if (this.state.radioButtonsActive) {
@@ -216,9 +153,6 @@ class Questions extends Component {
           this.readOptions ();
           return;
         }
-        // else if (recog === this.state.option1.toUpperCase () || recog === this.state.option2.toUpperCase () || recog === this.state.option3.toUpperCase () || recog === this.state.option4.toUpperCase ()) {
-        //   this.incorrectAnswerSpeak ();
-        // }
         else if (this.isInArray (words, option1.toUpperCase ()) || this.isInArray (words, option2.toUpperCase ()) || this.isInArray (words, option3.toUpperCase ()) || this.isInArray (words, option4.toUpperCase ())) {
           for (var i = 0; i < negatives.length; i++) {
             if (this.isInArray (words, negatives[i].toUpperCase ())) {
@@ -401,20 +335,6 @@ class Questions extends Component {
     );
   }
 }
-
-function mapStateToProps(state) {
-    return {
-      questionData: state.QuestionReducer.questionGetSuccess
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-      QuestionAction: bindActionCreators (QuestionAction, dispatch)
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Questions);
 
 const styles = StyleSheet.create({
   container: {
