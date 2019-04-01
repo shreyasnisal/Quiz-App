@@ -1,6 +1,6 @@
 # QuizApp
 
-This repository contains the Quiz app for android and iOS devices, developed in react-native. The application uses the QuizApp-WebService.
+This branch of the repository contains the version of the app that does not require a back-end. The questions data is stored in the questions_data.json file.
 
 ## Getting Started
 
@@ -12,7 +12,6 @@ nodejs
 
 react-native
 
-[QuizApp-WebService](https://github.com/shreyasnisal/QuizApp-WebService)
 
 ### Installing
 
