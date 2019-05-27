@@ -1,6 +1,7 @@
 # QuizApp
 
 This repository contains the Quiz app for android and iOS devices, developed in react-native. The application uses the QuizApp-WebService.
+To check out the app: https://drive.google.com/open?id=1KCBmwZMww-QtRMsE00LOe1PzUYOXzu_W
 
 ## Getting Started
 
