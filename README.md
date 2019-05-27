@@ -1,6 +1,6 @@
 # QuizApp
 
-This branch of the repository contains the version of the app that does not require a back-end. The questions data is stored in the questions_data.json file.
+This branch of the repository contains the version of the app that does not require a back-end. The questions data is stored in the questions_data.json file. To check out the app: https://drive.google.com/open?id=1KCBmwZMww-QtRMsE00LOe1PzUYOXzu_W
 
 ## Getting Started
 
